@@ -79,7 +79,6 @@ document.querySelector("#submit").addEventListener("click", () => {
   if (answers.length < 6) {
     return;
   }
-  console.log('Hello')
   quizTimer(true);
   answersContainer.innerHTML = `<div class="my-4">
   <i class="fa-solid fa-fan animate-spin text-2xl text-green-600"></i>
@@ -91,7 +90,6 @@ document.querySelector("#submit").addEventListener("click", () => {
     status: "",
     color: "",
   };
-
   for (let ans of answers) {
     if (ans.answer === ans.givenAns) {
       totalMark += 10;
@@ -110,12 +108,12 @@ document.querySelector("#submit").addEventListener("click", () => {
   }
 
   // data setting on local storage and getting data from local storage
-  let storage = JSON.parse(localStorage.getItem("result"));
+  let storage = JSON.parse(localStorage.getItem("results"));
+  console.log(storage);
   if (storage) {
     localStorage.setItem(
       "results",
-      JSON.stringify([
-        ...storage,
+      JSON.stringify([...storage,
         {
           marks: totalMark,
           examTime: timeTaken.innerText,
