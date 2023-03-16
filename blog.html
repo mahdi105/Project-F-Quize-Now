@@ -15,13 +15,49 @@
     </header>
     <main>
         <article class="py-5 container mx-auto px-5">
-            <h1 class="font-bold text-4xl mb-3">Answers to the questions given as Assignment Shown below</h1>
-            <ol class="list-decimal px-5">
+            <h1 class="font-bold text-4xl mb-5">Answers to the questions given as Assignment Shown below</h1>
+            <ol class="list-decimal px-5 mb-4">
                 <li>What is the difference between map(), filter(), forEach() and find() as Array method?</li>
                 <li>What's the difference between Local Storage, Session Storage and Cookies?</li>
                 <li>What's Javascript Event Loop? and How it works?</li>
                 <li>The purpose of quizTimer() and chooseQuiz()</li>
             </ol>
+            <h2 class="font-semibold text-2xl">1. What is the difference between map(), filter(), forEach() and find() as Array method?</h2>
+            <div class="px-5 mb-5">
+                <p><strong class="font-semibold text-rose-600 text-xl">map(): </strong> It's one of the array iterators specifically for looping through an array. After completing the loop it returns an array.</p>
+                <p><strong class="font-semibold text-rose-600 text-xl">filter(): </strong> 
+                    Another array iterator is used for looping through an array. It also returns an array. filter() takes a function as an argument. The purpose is to filter array elements with respective conditions.<br>
+                    <span class="font-semibold bg-slate-300">
+                        const ary = [34,56,78,901,0,5,82,111,1000,90,23,119,19];<br>
+                        const filteredArry = ary.filter((item) => item > 70);<br>
+                        console.log(filteredArry);// Output: [78,82,111,1000,90,119,19]<br>
+                    </span>
+                </p>
+                <p><strong class="font-semibold text-rose-600 text-xl">forEach(): </strong> Unique array iterator, It is used only for looping through Array. It doesn't return anything or even a new array. It is an alternative to For Loop built for the array.</p>
+                <p><strong class="font-semibold text-rose-600 text-xl">find(): </strong> Sometimes we need a particular array element. To find the array element there is an iterator named find(). It takes a function and a condition passes into it. Regarding the condition the find() method just returns an array element, Not a new array.</p>
+            </div>
+            <h2 class="font-semibold text-2xl">2. What's difference between Local Storage, Session Storage and Cookies?</h2>
+            <div class="px-5">
+                <p><strong class="font-semibold text-rose-600 text-xl">Local Storage: </strong>
+                    Storing data to clients or the user's computer. Local Storage is used for this purpose. It's important cause Login info, unregistered users shopping cart history, payment gateway info, etc. should be stored. Usually Local Storage capacity is 10MB. It doesn't need any HTTP request. The location of Local Storage is in the user's Hard Drive. Data will be stored in the particular browser window for a long time. Data will not be cleared until manually deleted from Local Storage.
+                </p>
+                <p><strong class="font-semibold text-rose-600 text-xl">Session Storage: </strong>
+                    It is quite similar to Local Storage. The only difference is the data stored in the Session storage will be cleared after closing the Browser. Usually, its size is 5MB.
+                </p>
+                <p><strong class="font-semibold text-rose-600 text-xl">Cookies: </strong>
+                    Cookies are sent by the server. It is sent with a response to an HTTP request and then stored in the user's Hard Drive. It stores users' information. If the user returns to the website, the cookie stored in the user's computer is also sent with the request to the server. Then the server parses it to its own language, And it gets the user's information. Cookies are sent in text form. Usually, its size is 5KB. The purposes are Session Management, Personalization, and Tracking. It doesn't care about the user's privacy. Through cookies, companies are selling user information to third-party. Through cookies, it tracks every step of the users on the internet through networks of websites. It may have expiry date.
+                </p>
+            </div>
+            <h2 class="font-semibold text-2xl">3. What's Javascript Event Loop?</h2>
+            <div class="px-5">
+                <p>
+                    We know that Javascript is a single-threaded programming language. But it can perform asynchronous tasks. But how? It is the charisma of Event Loop. Function calls are executed from the call stack sequentially. Because javascript is single-threaded. If a call is executed it will be popped from the call stack. Every task should be a sync task. But what happened to the async task? when an async task is called to the call stack, it will not execute from the call stack. The async task will be sent to the corresponding Browser API & Browser API represents a new thread for the execution of an async task. So sync tasks are executed directly from the call stack and async tasks are processed in Browser API. After processing the completion of the async task, a message regarding the async function execution is queued to the Callback Queue or Event Queue. The async task will be here one after another. But still, the async task will not execute. Here event loop works for the execution of the async task. 
+                </p>
+                <p>Basically, it checks whether or not the call stack empty means there are no synchronous tasks. Through Event Loop every async call will move to the call stack from Event Queue as first in first out way. Finally from an empty call stack, every async call will execute.</p>
+                <p>This is how Javascript can execute the Asynchronous function being a Single Threaded Language with the help of Browser API, Callback Queue, and Event Loop.</p>
+
+                
+            </div>
         </article>
     </main>
     <footer>
