@@ -37,7 +37,7 @@
                 <p><strong class="font-semibold text-rose-600 text-xl">find(): </strong> Sometimes we need a particular array element. To find the array element there is an iterator named find(). It takes a function and a condition passes into it. Regarding the condition the find() method just returns an array element, Not a new array.</p>
             </div>
             <h2 class="font-semibold text-2xl">2. What's difference between Local Storage, Session Storage and Cookies?</h2>
-            <div class="px-5">
+            <div class="px-5 mb-6">
                 <p><strong class="font-semibold text-rose-600 text-xl">Local Storage: </strong>
                     Storing data to clients or the user's computer. Local Storage is used for this purpose. It's important cause Login info, unregistered users shopping cart history, payment gateway info, etc. should be stored. Usually Local Storage capacity is 10MB. It doesn't need any HTTP request. The location of Local Storage is in the user's Hard Drive. Data will be stored in the particular browser window for a long time. Data will not be cleared until manually deleted from Local Storage.
                 </p>
@@ -51,13 +51,37 @@
             <h2 class="font-semibold text-2xl">3. What's Javascript Event Loop?</h2>
             <div class="px-5">
                 <p>
-                    We know that Javascript is a single-threaded programming language. But it can perform asynchronous tasks. But how? It is the charisma of Event Loop. Function calls are executed from the call stack sequentially. Because javascript is single-threaded. If a call is executed it will be popped from the call stack. Every task should be a sync task. But what happened to the async task? when an async task is called to the call stack, it will not execute from the call stack. The async task will be sent to the corresponding Browser API & Browser API represents a new thread for the execution of an async task. So sync tasks are executed directly from the call stack and async tasks are processed in Browser API. After processing the completion of the async task, a message regarding the async function execution is queued to the Callback Queue or Event Queue. The async task will be here one after another. But still, the async task will not execute. Here event loop works for the execution of the async task. 
+                    We know that Javascript is a <strong>single-threaded</strong> programming language. But it can perform <strong>asynchronous</strong> tasks. But how? It is the charisma of <strong>Event Loop</strong>. Function calls are executed from the <strong>call stack</strong> sequentially.If a call is executed it will be popped from the call stack. Every task should be a sync task. But what happened to the async task? when an async task is called to the call stack, it will not execute from the call stack. The async task will be sent to the corresponding <strong>Browser API</strong> & Browser API represents a new <strong>thread</strong> for the execution of an async task. So sync tasks are executed directly from the call stack and async tasks are processed in Browser API. After processing the completion of the async task, a message regarding the async function execution is queued to the <strong>Callback Queue</strong> or <strong>Event Queue</strong>. The async task will be here one after another. But still, the async task will not execute. Here <strong>Event Loop</strong> works for the execution of the async task. 
                 </p>
                 <p>Basically, it checks whether or not the call stack empty means there are no synchronous tasks. Through Event Loop every async call will move to the call stack from Event Queue as first in first out way. Finally from an empty call stack, every async call will execute.</p>
                 <p>This is how Javascript can execute the Asynchronous function being a Single Threaded Language with the help of Browser API, Callback Queue, and Event Loop.</p>
 
                 
             </div>
+        </article>
+        <article class="py-5 container mx-auto px-5">
+            <h1 class="font-bold text-4xl mb-5">How quizTimer() and chooseQuiz() functions work</h1>
+            <h2 class="text-blue-700 font-semibold text-xl ml-5">4. QuizTimer()</h2>
+            <p class="mb-5 ml-5">Handling timer after starting a quiz. It is an arrow function, that takes only one argument as a parameter. A statement is given to the function at the beginning for validation. The statement tells if the function is called with an argument of truthy value(true), this will stop <strong>setInterval()</strong> using the <strong>clearInterval()</strong> method. Else, the function is called without argument it will start a dynamic timer using the <strong>clearInterval()</strong> method.
+            The <strong>clearInterval()</strong> method takes a callback function as an argument. SetInterval() method calls the function and executes the function after a certain time, here it is 1000 milliseconds. And it constantly runs after every 1000 milliseconds. Inside the callback, some variables are declared and some global variable is used. These are countHTML, covtMin, mod, min, countSec, etc.</p>
+            <ol class="list-decimal ml-10 mb-5">
+                <li><strong>countHTML</strong> - It defines The DOM Element that will show the timer</li>
+                <li><strong>covtMin</strong> - It contains a Numeric value.</li>
+                <li><strong>min</strong> - contains the value of minute</li>
+                <li><strong>countSec</strong> - contains the value of second</li>
+            </ol>
+            <p class="ml-5 mb-7">All these variable, expression and statement is used inside quizeTimer() function for showing timer and even stopping the timer</p>
+            <h2 class="text-blue-700 font-semibold text-xl ml-5 mb-6">5. ChooseQuiz()</h2>
+            <p class="mb-5 ml-5"><strong>ChooseQuiz()</strong> is used to select every quiz.
+                It's an arrow function that has 2 parameters, the first one is  <strong>'index'</strong> and another is <strong>'givenAns'</strong>.
+                <strong>'index'</strong> - This means the index of an array element found from the fetched data. The data comes through this path- "./data/quiz.json".</p>
+            <p class="mb-5 ml-5">The parameter <strong>'givenAns'</strong> is the option of a quiz. Inside the function the <strong>'isExist'</strong> variable checks if any answer's id is matching with any quizData's Id or not.</p>
+            <p class="mb-2 ml-5">If 'isExist' is a truthy value, one item will be removed and one will be added to an array declared globally named  'answer'.</p>
+            <p class="mb-2 ml-5">If 'isExist' is a falsy value, an <strong>item</strong> </p>
+            <p class="mb-2 ml-5 text-rose-600">item = <strong>{... quizData[index], givenAns}</strong></p>   
+            <p class="mb-2 ml-5">will be pushed directly to the array (named <strong>'answer'</strong>).Finally, the <strong>displayAnswers()</strong> function will be invoked with an argument. And the argument is the 'answer' array.</p>   
+                
+                    
         </article>
     </main>
     <footer>
